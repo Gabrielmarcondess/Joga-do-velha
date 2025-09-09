@@ -70,7 +70,7 @@ I++;
 } 
     }
 
-Void Jogo(jogadorAtual){
+Void Jogar(jogadorAtual){
 If(jogadorAtual == jogador1) {
 JogadorAtual = jogador 2;
 } 
