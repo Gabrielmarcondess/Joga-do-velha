@@ -120,8 +120,8 @@ void jogar(string jogador)
 
 while (matriz[0, 0] == "(   )" || matriz[1, 0] == "(   )" || matriz[2, 0] == "(   )" || matriz[0, 1] == "(   )" || matriz[0, 2] == "(   )" || matriz[1, 1] == "(   )" || matriz[1, 2] == "(   )" || matriz[2, 1] == "(   )" || matriz[2, 2] == "(   )")
 {
-    jogar(jogadorAtual);
     Console.WriteLine($"Vez do jogador '{jogadorAtual}', escolha uma posiçao de 1 a 9:");
+    jogar(jogadorAtual);
     if (jogadas < 9 && err == "erro")
     {
         if (jogadorAtual == jogador1)
@@ -135,3 +135,4 @@ while (matriz[0, 0] == "(   )" || matriz[1, 0] == "(   )" || matriz[2, 0] == "( 
     }
     err = "";
 }
+
