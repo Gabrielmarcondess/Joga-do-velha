@@ -1,0 +1,81 @@
+string RetornarOperador()
+{
+    Console.WriteLine("Digite um operador:( + | - | * | / ) ");
+    string texto = Console.ReadLine();
+    return texto;
+}
+float RetornarValorfloat()
+{
+    Console.WriteLine("Digite um numero: ");
+    string texto = Console.ReadLine();
+    float result = 0;
+    float.TryParse(texto, out result);
+    return result;
+}
+
+float Soma(float num1, float num2)
+{
+    return num1 + num2;
+}
+float subtracao(float num1, float num2)
+{
+    return num1 - num2;
+}
+float divisao(float num1, float num2)
+{
+    return num1 / num2;
+}
+float multiplicacao(float num1, float num2)
+{
+    return num1 * num2;
+}
+float media(float num1, float num2)
+{
+    return (num1 + num2) / 2;
+}
+//-----------------------------------------------
+float num1 = RetornarValorfloat();
+float num2 = RetornarValorfloat();
+string operador = RetornarOperador();
+float resultado = 0;
+bool operadorValido = true;
+//-----------------------------------------------
+if (string.IsNullOrEmpty(operador))
+{
+    Console.WriteLine("Operador inválido");
+    operadorValido = false;
+}
+else
+{
+    switch (operador)
+    {
+        case "+":
+            resultado = Soma(num1, num2);
+            Console.WriteLine($"O resultado da soma é: {resultado}");
+            break;
+        case "-":
+            resultado = subtracao(num1, num2);
+            Console.WriteLine($"O resultado da subtração é: {resultado}");
+            break;
+        case "*":
+            resultado = multiplicacao(num1, num2);
+            Console.WriteLine($"O resultado da multiplicação é: {resultado}");
+            break;
+        case "/":
+            if (num2 == 0)
+            {
+                Console.WriteLine("Não é possivel dividir por 0");
+                operadorValido = false;
+            }
+            else
+            {
+                resultado = divisao(num1, num2);
+                Console.WriteLine($"O resultado da divisão é: {resultado}");
+            }
+            break;
+        default:
+            Console.WriteLine("Operador inválido");
+            operadorValido = false;
+            break;
+    }
+}
