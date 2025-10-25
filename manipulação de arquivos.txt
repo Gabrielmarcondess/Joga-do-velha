@@ -1,0 +1,51 @@
+const string filePath = "C:\\Users\\2025105377\\Downloads\\testo.txt";
+
+if (!File.Exists(filePath)) { 
+    File.Create(filePath).Close(); }
+//var data = File.ReadAllText(filePath);
+//Console.WriteLine(data);
+var i = 0;
+void escrever(string alg)
+{
+    using var file = File.AppendText(filePath);
+    file.WriteLine($"{alg}");
+    file.Flush();
+    Console.WriteLine("Texto adicionado com sucesso!");
+}
+void ler() {
+var data = File.ReadAllLines(filePath);
+foreach (var line in data)
+{
+    i++;
+    Console.WriteLine($"linha {i} - {line}");
+} 
+}
+
+while (true)
+{
+   Console.WriteLine("voce quer adicionar algo no arquivo: s/n ou apenas ler? l");
+    string algo = Console.ReadLine();
+    if (algo == "s")
+    {
+        Console.Write("Digite o texto que deseja adicionar: ");
+        string texto = Console.ReadLine();
+        escrever(texto);
+    }
+    else if (algo == "n")
+    {
+        break;
+    }
+    else if (algo == "l")
+    {
+        ler();
+        break;
+    }
+    else
+    {
+        Console.WriteLine("erro");
+        break;
+    }
+    ler();
+    Console.Clear();
+}
+
